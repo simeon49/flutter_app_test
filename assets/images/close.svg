@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>close</title>
+    <desc>Created with Sketch.</desc>
+    <g id="close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval-2" fill="#BA0000" cx="15" cy="15" r="15"></circle>
+        <polygon id="路径" fill="#FFFFFF" points="15 12.6521739 21.6521739 6 24 8.34782609 17.3478261 15 24 21.6521739 21.6521739 24 15 17.3478261 8.34782609 24 6 21.6521739 12.6521739 15 6 8.34782609 8.34782609 6"></polygon>
+    </g>
+</svg>

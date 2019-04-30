@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>pic_update</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="80" height="80"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="80" height="80" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="pic_update" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <use id="矩形" stroke="#979797" mask="url(#mask-2)" stroke-width="2" stroke-dasharray="4" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <polygon id="+" fill="#FFFFFF" points="37.4503366 26 42.6752475 26 42.6752475 37.3947525 54.07 37.3947525 54.07 42.6196634 42.6752475 42.6196634 42.6752475 54.07 37.4503366 54.07 37.4503366 42.6196634 26 42.6196634 26 37.3947525 37.4503366 37.3947525"></polygon>
+        </g>
+    </g>
+</svg>

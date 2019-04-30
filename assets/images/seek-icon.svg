@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>seek-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="15" cy="15" r="15"></circle>
+        <filter x="-10.0%" y="-10.0%" width="120.0%" height="120.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="2.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.575718119   0 0 0 0 0.783895828   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="seek-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape">
+            <use fill="#007DFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+        </g>
+        <path d="M16.5823482,23 C16.2118479,23 15.8413476,22.625 15.8413476,22.25 L15.8413476,13.8125 C15.8413476,13.625 15.9339727,13.4375 16.0265978,13.34375 L18.9906002,9.5 L10.283843,9.5 L13.2478455,13.25 C13.3404706,13.4375 13.4330956,13.625 13.4330956,13.71875 L13.4330956,19.4375 C13.4330956,19.8125 13.0625953,20.1875 12.692095,20.1875 C12.3215947,20.1875 11.9510944,19.8125 11.9510944,19.4375 L11.9510944,14 L8.15346625,9.21875 C7.9682161,9.03125 7.9682161,8.65625 8.06084118,8.46875 C8.15346625,8.1875 8.43134148,8 8.70921671,8 L20.4726015,8 C20.7504767,8 21.0283519,8.1875 21.120977,8.46875 C21.2136021,8.75 21.2136021,9.03125 21.0283519,9.21875 L17.2307238,14 L17.2307238,22.15625 C17.3233489,22.625 17.0454736,23 16.5823482,23 Z" id="Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

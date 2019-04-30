@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>tree</title>
+    <desc>Created with Sketch.</desc>
+    <g id="tree" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8,20 L13,20 L13,15 L8,15 L8,20 Z M9.25,16.25 L11.75,16.25 L11.75,18.75 L9.25,18.75 L9.25,16.25 Z" id="Shape" fill="#00FF2F" fill-rule="nonzero"></path>
+        <path d="M17.5,15 L17.5,10 L10.625,10 L10.625,5 L13.125,5 L13.125,0 L6.875,0 L6.875,5 L9.375,5 L9.375,10 L2.5,10 L2.5,15 L0,15 L0,20 L5,20 L5,15 L3.75,15 L3.75,11.25 L16.25,11.25 L16.25,15 L15,15 L15,20 L20,20 L20,15 L17.5,15 Z M3.75,18.75 L1.25,18.75 L1.25,16.25 L3.75,16.25 L3.75,18.75 Z M8.125,3.75 L8.125,1.25 L11.875,1.25 L11.875,3.75 L8.125,3.75 Z M18.75,18.75 L16.25,18.75 L16.25,16.25 L18.75,16.25 L18.75,18.75 Z" id="Shape" fill="#00FF2F" fill-rule="nonzero"></path>
+    </g>
+</svg>
