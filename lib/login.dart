@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter_app_test01/event.dart';
 
 class LoginRoute extends StatefulWidget {
   @override
@@ -64,6 +64,7 @@ class _loginRouteState extends State<LoginRoute> {
                         onPressed: () {
                           if ((_formKey.currentState as FormState).validate()) {
                             print('通过验证');
+                            bus.emit('login');
                           }
                         },
                       ),
