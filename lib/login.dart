@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app_test01/event.dart';
+import 'package:path_provider/path_provider.dart';
 
 class LoginRoute extends StatefulWidget {
   @override
@@ -61,9 +64,12 @@ class _loginRouteState extends State<LoginRoute> {
                         child: Text('登录'),
                         color: Theme.of(context).primaryColor,
                         textColor: Colors.white,
-                        onPressed: () {
+                        onPressed: () async {
                           if ((_formKey.currentState as FormState).validate()) {
                             print('通过验证');
+                            // Directory appDocDir = await getApplicationDocumentsDirectory() as Directory;
+                            // String appDocPath = appDocDir.path;
+
                             bus.emit('login');
                           }
                         },

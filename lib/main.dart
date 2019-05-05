@@ -12,6 +12,9 @@ import 'package:flutter_app_test01/scrollable.dart';
 import 'package:flutter_app_test01/inherited_widget.dart';
 import 'package:flutter_app_test01/theme.dart';
 import 'package:flutter_app_test01/event.dart';
+import 'package:flutter_app_test01/animation.dart';
+import 'package:flutter_app_test01/turn_box.dart';
+import 'package:flutter_app_test01/custom_paint.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,7 +36,38 @@ class MyApp extends StatelessWidget {
         'inherited': (context) => InheritedWidgetTestRoute(),
         'theme': (context) => ThemeTestRoute(),
         'event': (context) => Event01Test(),
+        'animation': (context) => HeroAnimationRoute(),
+        'turn-box': (context) => TurnBoxRoute(),
+        'custom-paint': (context) => CustomPaintRoute(),
       }
+    );
+  }
+}
+
+class GotoPageButton extends StatelessWidget {
+  const GotoPageButton({
+    Key key,
+    @required this.name,
+    @required this.routeName
+  }) : super(key: key);
+
+  final String name;
+  final String routeName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(vertical: 5.0),
+      child: FlatButton(
+        color: Colors.blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 12.0),
+        child: Text(name, style: TextStyle(fontSize: 18.0, color: Colors.white),),
+        onPressed: () {
+          Navigator.pushNamed(context, routeName);
+        },
+      ),
     );
   }
 }
@@ -92,8 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
             return true;
           },
           child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -107,105 +141,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     // Expanded(child: TapboxB(), flex: 1),
                   ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 20.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    // colorBrightness: Brightness.dark,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(20.0),
-                    child: Text.rich(TextSpan(
-                      style: TextStyle(fontSize: 18.0, color: Colors.white),
-                      children: [
-                        TextSpan(text: 'open '),
-                        TextSpan(text: 'Counter Page', style: TextStyle(fontSize: 24.0, decoration: TextDecoration.underline))
-                      ],
-                    )),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'counter');
-                      // Navigator.push(context, new MaterialPageRoute(
-                      //   builder: (context) {
-                      //     return new CounterWidget();
-                      //   },
-                      //   maintainState: false,
-                      //   // fullscreenDialog: true
-                      // ));
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('布局 Widgets', style: TextStyle(fontSize: 18.0, color: Colors.white),),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'layout');
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('容器 Widgets', style: TextStyle(fontSize: 18.0, color: Colors.white),),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'container');
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('可用滚动 Widgets', style: TextStyle(fontSize: 18.0, color: Colors.white),),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'scroll');
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('数据共享', style: TextStyle(fontSize: 18.0, color: Colors.white),),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'inherited');
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('主题', style: TextStyle(fontSize: 18.0, color: Colors.white),),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'theme');
-                    },
-                  ),
-                ),
-
-                Container(
-                  margin: EdgeInsets.only(top: 10.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                    padding: EdgeInsets.all(10.0),
-                    child: Text('事件', style: TextStyle(fontSize: 18.0, color: Colors.white),),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'event');
-                    },
-                  ),
-                ),
+                GotoPageButton(name: '计数器', routeName: 'counter'),
+                GotoPageButton(name: '布局 Widgets', routeName: 'layout'),
+                GotoPageButton(name: '容器 Widgets', routeName: 'container'),
+                GotoPageButton(name: '可用滚动 Widgets', routeName: 'scroll'),
+                GotoPageButton(name: '数据共享', routeName: 'inherited'),
+                GotoPageButton(name: '主题', routeName: 'theme'),
+                GotoPageButton(name: '事件', routeName: 'event'),
+                GotoPageButton(name: '动画', routeName: 'animation'),
+                GotoPageButton(name: 'TurnBox', routeName: 'turn-box'),
+                GotoPageButton(name: '绘制 widget', routeName: 'custom-paint'),
               ],
             ),
           ),
