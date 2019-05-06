@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'widget/drawer.dart';
 import 'widget/post_list.dart';
+import 'widget/base_demo.dart';
 
 void main() => runApp(App());
 
@@ -32,7 +33,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _tabePages = [
     PostList(),
-    PostList(),
+    BasicDemo(),
     PostList(),
     PostList(),
   ];
@@ -49,6 +50,9 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text('My first flutter app'),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search), tooltip: 'Search sth', onPressed: () => debugPrint('search button is pressed.')),
+        ],
         elevation: 0,
       ),
       body: _tabePages[_currentIndex],
@@ -59,9 +63,9 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _currentIndex,
         onTap: _onTapHandler,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.explore), title: Text('Explore')),
-          BottomNavigationBarItem(icon: Icon(Icons.history), title: Text('History')),
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
+          BottomNavigationBarItem(icon: Icon(Icons.card_travel), title: Text('基础练习')),
+          BottomNavigationBarItem(icon: Icon(Icons.today), title: Text('Home')),
           BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('My')),
         ]
       )
