@@ -4,6 +4,8 @@ import 'widget/drawer.dart';
 import 'widget/post_list.dart';
 import 'widget/base_demo.dart';
 
+import 'page/sliver_demo.dart';
+
 void main() => runApp(App());
 
 class App extends StatelessWidget {
@@ -30,17 +32,31 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
+  List<Widget> _widgets;
+  Widget _tabeView;
 
-  final List<Widget> _tabePages = [
-    PostList(),
-    BasicDemo(),
-    PostList(),
-    PostList(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _widgets = [
+      PostList(),
+      BasicDemo(),
+    ];
+    _tabeView = _widgets[_currentIndex];
+  }
 
   void _onTapHandler(index) {
     setState(() {
-      _currentIndex = index;
+      if (index < 2) {
+        _tabeView = _widgets[index];
+        _currentIndex = index;
+      } else {
+        Navigator.of(context).push(MaterialPageRoute<Null>(
+          builder: (BuildContext context) {
+            return SliverRouteDemo(title: 'Hello');
+          }
+        ));
+      }
     });
   }
 
@@ -55,7 +71,7 @@ class _MainPageState extends State<MainPage> {
         ],
         elevation: 0,
       ),
-      body: _tabePages[_currentIndex],
+      body: _tabeView,
       drawer: HomeDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -65,7 +81,7 @@ class _MainPageState extends State<MainPage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
           BottomNavigationBarItem(icon: Icon(Icons.card_travel), title: Text('基础练习')),
-          BottomNavigationBarItem(icon: Icon(Icons.today), title: Text('Home')),
+          BottomNavigationBarItem(icon: Icon(Icons.today), title: Text('Sliver')),
           BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('My')),
         ]
       )

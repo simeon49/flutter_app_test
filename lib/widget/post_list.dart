@@ -4,6 +4,8 @@
 import 'package:flutter/material.dart';
 
 import '../model/post.dart';
+import '../widget/hero_demo.dart';
+import '../page/post_show.dart';
 
 class PostList extends StatefulWidget {
   PostList({Key key}) : super(key: key);
@@ -21,14 +23,44 @@ class _PostListState extends State<PostList> {
           decoration: BoxDecoration(
             color: Colors.white,
           ),
-          child: Column(
+          child: Stack(
             children: <Widget>[
-              Image.network(posts[index].imageUrl),
-              SizedBox(height: 8.0),
-              Text(posts[index].title, style: Theme.of(context).textTheme.title),
-              Text(posts[index].author, style: Theme.of(context).textTheme.subhead),
-              SizedBox(height: 8.0),
-            ],
+              Column(
+                children: <Widget>[
+                  // 固定图片显示比例
+                  Hero(
+                    tag: 'post-show#${index}',
+                    child: AspectRatio(aspectRatio: 16 / 9, child: Image.network(posts[index].imageUrl, fit: BoxFit.cover)),
+                  ),
+                  SizedBox(height: 8.0),
+                  Text(posts[index].title, style: Theme.of(context).textTheme.title),
+                  Text(posts[index].author, style: Theme.of(context).textTheme.subhead),
+                  SizedBox(height: 8.0),
+                ],
+              ),
+              // 溅磨效果
+              Positioned.fill(
+                child: Material(
+                  color: Colors.transparent,
+                  child: Ink(
+                    child: InkWell(
+                      splashColor: Colors.white.withOpacity(0.2),
+                      highlightColor: Colors.white.withOpacity(0.5),
+                      onTap: () => {
+                        // Scaffold.of(context).showSnackBar(SnackBar(
+                        //   content: Text('Tap'),
+                        // ))
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (BuildContext context) {
+                            return PostShowRoute(id: index);
+                          })
+                        )
+                      }
+                    ),
+                  )
+                ),
+              )
+            ]
           ),
         )
       )

@@ -2,7 +2,12 @@
  * 基本练习
  */
 import 'package:flutter/material.dart';
+import '../model/post.dart';
 
+/* -------------------- 基础功能 Widgets -------------------- */
+/**
+ * 文本
+ */
 class TextDemo extends StatelessWidget {
   const TextDemo({Key key}) : super(key: key);
 
@@ -22,6 +27,9 @@ class TextDemo extends StatelessWidget {
   }
 }
 
+/**
+ * 富文本
+ */
 class RichTextDeom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,6 +52,9 @@ class RichTextDeom extends StatelessWidget {
   }
 }
 
+/**
+ * 容器
+ */
 class ContainerDemo extends StatelessWidget {
   const ContainerDemo({Key key}) : super(key: key);
 
@@ -101,8 +112,278 @@ class ContainerDemo extends StatelessWidget {
 }
 
 
+/* -------------------- 布局 Widgets -------------------- */
+/**
+ * 约束盒子
+ */
+class ConstrainedBoxDemo extends StatelessWidget {
+  const ConstrainedBoxDemo({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(minHeight: 100.0, maxWidth: 100.0, maxHeight: 200.0),
+      child: Container(
+        color: Color.fromRGBO(3, 54, 255, 1.0),
+      ),
+    );
+  }
+}
+
+/**
+ * 强制宽高比
+ */
+class AspectRatioDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 200.0,
+      child: AspectRatio(
+        aspectRatio: 16.0 / 9.0, // 宽:高
+        child: Container(
+          color: Color.fromRGBO(3, 54, 255, 1.0),
+        ),
+      ),
+    );
+  }
+}
+
+/**
+ * Flex布局(Row, Column)
+ */
+class FexlDemo extends StatelessWidget {
+  const FexlDemo({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          IconBadge(Icons.ac_unit),
+          IconBadge(Icons.brightness_2,size: 128),
+          IconBadge(Icons.attach_file),
+          IconBadge(Icons.airline_seat_recline_extra, size: 64),
+        ],
+      )
+    );
+  }
+}
+
+/**
+ * 绝对布局
+ */
+class StackDeom extends StatelessWidget {
+  const StackDeom({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.grey,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Positioned(
+            left: 100.0,
+            top: 30.0,
+            child: IconBadge(Icons.ac_unit),
+          ),
+          Positioned(
+            left: 200.0,
+            top: 300.0,
+            child: IconBadge(Icons.brightness_2,size: 128),
+          ),
+          Positioned(
+            left: 100.0,
+            top: 300.0,
+            child: IconBadge(Icons.attach_file),
+          ),
+          Positioned(
+            left: 100.0,
+            top: 50.0,
+            child: IconBadge(Icons.airline_seat_recline_extra, size: 64),
+          )
+        ],
+      )
+    );
+  }
+}
+
+class IconBadge extends StatelessWidget {
+  const IconBadge(this.icon, {
+    Key key,
+    this.size = 32.0,
+    this.color = Colors.lightGreen
+  }) : assert(size > 10.0)
+     , super(key: key);
+
+  final IconData icon;
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: size,
+      height: size,
+      child: Container(
+        alignment: Alignment(1.0, -0.5),
+        color: Colors.blue[900],
+        child: Icon(icon, size: size / 2.0, color: color),
+      ),
+    );
+  }
+}
+
+
+/* -------------------- PageView Widgets -------------------- */
+/**
+ * 滑动视图
+ */
+class PageViewDemo extends StatelessWidget {
+  const PageViewDemo({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: PageView.builder(
+            itemCount: posts.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Stack(
+                children: <Widget>[
+                  SizedBox.expand(child: Image.network(posts[index].imageUrl, fit: BoxFit.cover)),
+                  Positioned(
+                    bottom: 0.0,
+                    right: 10.0,
+                    child: Column(
+                      children: <Widget>[
+                        Text(posts[index].title, style: TextStyle(fontSize: 32.0, color: Colors.black87, fontWeight: FontWeight.bold)),
+                        Text(posts[index].author, style: TextStyle(fontSize: 16.0, color: Colors.black38)),
+                      ],
+                    )
+                  )
+                ],
+              );
+            }
+          ),
+        ),
+        Expanded(
+          child: PageView(
+            scrollDirection: Axis.vertical,
+            // reverse: true,
+            // pageSnapping: false,
+            controller: PageController(
+              initialPage: 2,
+              keepPage: false,
+              viewportFraction: 0.85
+            ),
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                color: Colors.brown[900],
+                child: Text('One', style: TextStyle(color: Colors.white, fontSize: 32.0))
+              ),
+              Container(
+                alignment: Alignment.center,
+                color: Colors.grey[900],
+                child: Text('Two', style: TextStyle(color: Colors.white, fontSize: 32.0))
+              ),
+              Container(
+                alignment: Alignment.center,
+                color: Colors.blueGrey[900],
+                child: Text('Three', style: TextStyle(color: Colors.white, fontSize: 32.0))
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+/**
+ * 网格视图
+ */
+class GridViewDemo extends StatelessWidget {
+  const GridViewDemo({Key key}) : super(key: key);
+
+  List<Widget> _generateTiles(length) {
+    return List.generate(length, (int index) {
+      return Container(
+        color: Colors.grey[300],
+        alignment: Alignment.center,
+        child: Text('item ${index}', style: TextStyle(color: Colors.black54)),
+      );
+    });
+  }
+
+  Widget _gridItemBuilder(BuildContext context, int index) {
+    return Stack(
+      children: <Widget>[
+        SizedBox.expand(
+          child: Image.network(posts[index].imageUrl, fit: BoxFit.cover),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(posts[index].title, style: TextStyle(fontSize: 16.0, color: Colors.black87, fontWeight: FontWeight.bold)),
+              Text(posts[index].author, style: TextStyle(fontSize: 12.0, color: Colors.black45)),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // return GridView.count(
+    //   crossAxisCount: 3,
+    //   mainAxisSpacing: 16.0,
+    //   crossAxisSpacing: 16.0,
+    //   children: _generateTiles(100),
+    // );
+
+    // return GridView.extent(
+    //   maxCrossAxisExtent: 100.0,
+    //   mainAxisSpacing: 16.0,
+    //   crossAxisSpacing: 16.0,
+    //   children: _generateTiles(100),
+    // );
+
+    return GridView.builder(
+      itemCount: posts.length,
+      itemBuilder: _gridItemBuilder,
+      padding: EdgeInsets.all(16.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,  // 纵轴显示个数
+        mainAxisSpacing: 16.0,  // 主轴间距
+        crossAxisSpacing: 16.0, // 纵轴间距
+        childAspectRatio: 1 / 1,  // 宽高比
+      ),
+    );
+  }
+}
+
+
+// 基础功能 Widgets
 // class BasicDemo extends TextDemo {}
 // class BasicDemo extends RichTextDeom {}
-class BasicDemo extends ContainerDemo {}
-// class BasicDemo extends TextDemo {}
-// class BasicDemo extends TextDemo {}
+// class BasicDemo extends ContainerDemo {}
+
+// 布局 Widgets
+// class BasicDemo extends ConstrainedBoxDemo {}
+// class BasicDemo extends AspectRatioDemo {}
+// class BasicDemo extends FexlDemo {}
+// class BasicDemo extends StackDeom {}
+
+// PageView Widgets
+// class BasicDemo extends PageViewDemo {}
+class BasicDemo extends GridViewDemo {}
