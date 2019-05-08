@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'widget/drawer.dart';
 import 'widget/post_list.dart';
 import 'widget/base_demo.dart';
-
 import 'page/sliver_demo.dart';
+import 'page/form_demo.dart';
 
 void main() => runApp(App());
 
@@ -51,9 +51,15 @@ class _MainPageState extends State<MainPage> {
         _tabeView = _widgets[index];
         _currentIndex = index;
       } else {
+        StatefulWidget route = null;
+        if (index == 2) {
+          route = SliverRouteDemo(title: 'Hello');
+        } else {
+          route = FormRoute();
+        }
         Navigator.of(context).push(MaterialPageRoute<Null>(
           builder: (BuildContext context) {
-            return SliverRouteDemo(title: 'Hello');
+            return route;
           }
         ));
       }
