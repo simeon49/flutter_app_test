@@ -4,7 +4,7 @@ import 'widget/drawer.dart';
 import 'widget/post_list.dart';
 import 'widget/base_demo.dart';
 import 'page/sliver_demo.dart';
-import 'page/form_demo.dart';
+import 'page/expert_demo.dart';
 
 void main() => runApp(App());
 
@@ -55,7 +55,7 @@ class _MainPageState extends State<MainPage> {
         if (index == 2) {
           route = SliverRouteDemo(title: 'Hello');
         } else {
-          route = FormRoute();
+          route = ExperDemo();
         }
         Navigator.of(context).push(MaterialPageRoute<Null>(
           builder: (BuildContext context) {
@@ -88,7 +88,7 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
           BottomNavigationBarItem(icon: Icon(Icons.card_travel), title: Text('基础练习')),
           BottomNavigationBarItem(icon: Icon(Icons.today), title: Text('Sliver')),
-          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('My')),
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('中级练习')),
         ]
       )
     );
