@@ -27,6 +27,7 @@ dependencies:
   redux: ^3.0.0
   flutter_svg: ^0.12.4
   path_provider: ^1.0.0
+  intl: ^0.15.8
 
 dev_dependencies:
   flutter_test:

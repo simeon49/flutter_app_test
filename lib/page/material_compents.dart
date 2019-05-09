@@ -63,31 +63,105 @@ class FloatingActionButtonDemo extends StatelessWidget {
 class ButtonDemo extends StatelessWidget {
 
   // ------------- flat button -------------
-  Widget _flatButton = FlatButton(
-    child: Text('FlatButton'),
-    splashColor: Colors.grey,
-    onPressed: () {},
-  );
+  Widget _flatButton(BuildContext context) {
+    return FlatButton(
+      child: Text('FlatButton'),
+      splashColor: Colors.grey,
+      onPressed: () {},
+    );
+  }
 
-  Widget _flatButtonIcon = FlatButton.icon(
-    icon: Icon(Icons.add),
-    label: Text('IconButton'),
-    onPressed: () {},
-  );
+  Widget _flatButtonIcon(BuildContext context) {
+    return FlatButton.icon(
+      icon: Icon(Icons.add),
+      label: Text('IconButton'),
+      onPressed: () {},
+    );
+  }
 
   // ------------- raised button -------------
-  Widget _raisedButton = RaisedButton(
-    child: Text('FlatButton'),
-    splashColor: Colors.grey,
-    onPressed: () {},
-    elevation: 0.0,
-  );
+  Widget _raisedButton(BuildContext context) {
+    return RaisedButton(
+      child: Text('RaisedButton'),
+      // splashColor: Theme.of(context).primaryColor,
+      onPressed: () {},
+      elevation: 0.0,
+    );
+  }
 
-  Widget _raiseButtonIcon = RaisedButton.icon(
-    icon: Icon(Icons.add),
-    label: Text('IconButton'),
-    onPressed: () {},
-  );
+  Widget _raisedButtonIcon(BuildContext context) {
+    return RaisedButton.icon(
+      icon: Icon(Icons.add),
+      label: Text('IconButton'),
+      // splashColor: Theme.of(context).primaryColor,
+      onPressed: () {},
+    );
+  }
+
+  // ------------- outline button -------------
+  Widget _outlineButton(BuildContext context) {
+    return OutlineButton(
+      child: Text('OutlineButton'),
+      borderSide: BorderSide(
+        color: Colors.black
+      ),
+      splashColor: Colors.grey,
+      onPressed: () {},
+    );
+  }
+
+  Widget _outlineButtonIcon(BuildContext context) {
+    return OutlineButton.icon(
+      icon: Icon(Icons.add),
+      label: Text('IconButton'),
+      onPressed: () {},
+    );
+  }
+
+  // ------------- container button -------------
+  Widget _buttonWithSize(BuildContext context) {
+    return Container(
+      width: 200.0,
+      height: 60.0,
+      child: OutlineButton(
+        child: Text('FlatButton'),
+        onPressed: () {},
+      )
+    );
+  }
+
+  Widget _buttonExtend(BuildContext context) {
+    return Expanded(
+      child: OutlineButton(
+        child: Text('FlatButton'),
+        onPressed: () {},
+      )
+    );
+  }
+
+  // ------------- popup menu button -------------
+  String value = 'home';
+  Widget _popupMenuButton(BuildContext context) {
+    return PopupMenuButton(
+      onSelected: (value) {
+        debugPrint(value);
+      },
+      itemBuilder: (BuildContext context) => [
+        PopupMenuItem(
+          value: 'home',
+          child: Text('Home'),
+        ),
+        PopupMenuItem(
+          value: 'discover',
+          child: Text('Discover'),
+        ),
+        PopupMenuItem(
+          value: 'comunity',
+          child: Text('Comunity'),
+        )
+      ]
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,26 +173,56 @@ class ButtonDemo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _flatButton,
+              _flatButton(context),
               SizedBox(width: 16.0),
-              _flatButtonIcon,
+              _flatButtonIcon(context),
             ],
+          ),
+          Theme(  // 修改主题
+            data: Theme.of(context).copyWith(
+              bottomAppBarColor: Colors.yellow,
+              buttonTheme: ButtonThemeData(
+                textTheme: ButtonTextTheme.primary,
+                // shape: BeveledRectangleBorder(
+                //   borderRadius: BorderRadius.circular(30.0)
+                // ),
+                shape: StadiumBorder ()
+              )
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _raisedButton(context),
+                SizedBox(width: 16.0),
+                _raisedButtonIcon(context),
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _raisedButton,
+              _outlineButton(context),
               SizedBox(width: 16.0),
-              _raiseButtonIcon,
+              _outlineButtonIcon(context),
+          ]),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buttonWithSize(context),
+              SizedBox(width: 16.0),
+              _buttonExtend(context),
+          ]),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _popupMenuButton(context)
             ],
-          ),
+          )
         ],
       ),
     );
   }
 }
-
-
 
 class ListItem extends StatelessWidget {
   const ListItem({
