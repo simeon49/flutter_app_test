@@ -15,6 +15,17 @@ import './snack_bar_demo.dart';
 import './expansion_panel_demo.dart';
 import 'chip_demo.dart';
 import './data_table_demo.dart';
+import './data_table_paginated_demo.dart';
+import './card_demo.dart';
+import './setpper_demo.dart';
+
+// 状态管理
+import './state/state_management_demo.dart';
+import './state/inherited_widget_demo.dart';
+import './state/scoped_model_demo.dart';
+
+// stream
+import './stream/steam_demo.dart';
 
 class ExperDemo extends StatefulWidget {
   ExperDemo({Key key}) : super(key: key);
@@ -42,6 +53,15 @@ class _ExperDemoState extends State<ExperDemo> {
           ListItem(title: '收缩面板 ExpansionPanel', page: ExpansionPanelDemo()),
           ListItem(title: '小碎片 Chip', page: ChipDemo()),
           ListItem(title: '数据表格 DataTable', page: DataTableDemo()),
+          ListItem(title: '数据表格(带分页) DataTable', page: PaginatedDataTableDemo()),
+          ListItem(title: '卡片 Card', page: CardDemo()),
+          ListItem(title: '步骤 Stepper', page: StepperDemo()),
+          // 状态管理
+          ListItem(title: '状态管理 StateManager', page: StateManagementDemo()),
+          ListItem(title: '继承方式传递参数 InheritedWidget', page: InheritedWidgetDemo()),
+          ListItem(title: '通过scoped_model 管理状态', page: ScopedModelDemo()),
+          // Stream
+          ListItem(title: 'Stream', page: SteamDemo()),
         ],
       ),
     );
