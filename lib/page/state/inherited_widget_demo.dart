@@ -58,12 +58,12 @@ class Counter extends StatelessWidget {
 
     return Container(
       child: ActionChip(
-          avatar: Icon(Icons.add),
-          label: Text(
-            '${count}',
-            style: TextStyle(fontSize: 32.0, color: Colors.blue),
-          ),
-          onPressed: increaseCount),
+        avatar: Icon(Icons.add),
+        label: Text(
+          '${count}',
+          style: TextStyle(fontSize: 32.0, color: Colors.blue),
+        ),
+        onPressed: increaseCount),
     );
   }
 }

@@ -23,9 +23,13 @@ import './setpper_demo.dart';
 import './state/state_management_demo.dart';
 import './state/inherited_widget_demo.dart';
 import './state/scoped_model_demo.dart';
-
-// stream
 import './stream/steam_demo.dart';
+import './rxdart/rxdart_demo.dart';
+import './bloc/bloc_demo.dart';
+
+// http
+import './http/http_demo.dart';
+
 
 class ExperDemo extends StatefulWidget {
   ExperDemo({Key key}) : super(key: key);
@@ -46,7 +50,7 @@ class _ExperDemoState extends State<ExperDemo> {
           ListItem(title: '单选按钮 Radio', page: RadioDemo()),
           ListItem(title: '开关 Switch', page: SwitchDemo()),
           ListItem(title: '滑块 Slider', page: SliderDemo()),
-          ListItem(title: '日期 intl', page: DateTimeDemo()),
+          ListItem(title: '国际化 日期 intl', page: DateTimeDemo()),
           ListItem(title: '对话框 Dialog', page: DialogDemo()),
           ListItem(title: '窗口底部 BottomSheet', page: BottomSheetDemo()),
           ListItem(title: '提示栏 SnackBar', page: SnackBarDemo()),
@@ -62,6 +66,12 @@ class _ExperDemoState extends State<ExperDemo> {
           ListItem(title: '通过scoped_model 管理状态', page: ScopedModelDemo()),
           // Stream
           ListItem(title: 'Stream', page: SteamDemo()),
+          // RxDart (Reactive Extensions)
+          ListItem(title: 'RxDart 响应式编程', page: RxDartDemo()),
+          // Bloc 响应式框架
+          ListItem(title: 'Bloc 业务逻辑组件', page: BlocDemo()),
+
+          ListItem(title: 'http', page: HttpDemo()),
         ],
       ),
     );

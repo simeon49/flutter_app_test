@@ -29,6 +29,9 @@ dependencies:
   path_provider: ^1.0.0
   intl: ^0.15.8
   scoped_model: ^1.0.1
+  rxdart: ^0.22.0
+  bloc: ^0.13.0
+  http: ^0.12.0+2
 
 dev_dependencies:
   flutter_test:
