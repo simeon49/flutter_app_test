@@ -46,7 +46,7 @@ class CounterAcionButton extends StatelessWidget {
 
     return FloatingActionButton(
       child: Icon(Icons.add),
-      onPressed: () => _counterBloC.sink.add(1)
+      onPressed: () => _counterBloC.add(1)
     );
   }
 }
