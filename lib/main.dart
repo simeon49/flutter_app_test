@@ -6,6 +6,9 @@ import 'widget/base_demo.dart';
 import 'page/sliver_demo.dart';
 import 'page/expert_demo.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import './page/i18/localizations.dart';
+
 void main() => runApp(App());
 
 class App extends StatelessWidget {
@@ -14,6 +17,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: Locale('zh', 'CN'), // 强制使用语言
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        CustomLocalizationsDelegate()
+      ],
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('zh', 'CN'),
+      ],
       home: MainPage(),
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,

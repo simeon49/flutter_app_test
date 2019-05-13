@@ -30,6 +30,11 @@ import './bloc/bloc_demo.dart';
 // http
 import './http/http_demo.dart';
 
+// 动画 animation
+import './animation_demo/animation_demo.dart';
+
+// 国际化
+import './i18/i18_demo.dart';
 
 class ExperDemo extends StatefulWidget {
   ExperDemo({Key key}) : super(key: key);
@@ -71,7 +76,14 @@ class _ExperDemoState extends State<ExperDemo> {
           // Bloc 响应式框架
           ListItem(title: 'Bloc 业务逻辑组件', page: BlocDemo()),
 
+          // http
           ListItem(title: 'http', page: HttpDemo()),
+
+          // animation
+          ListItem(title: '动画 animation', page: AnimationDemo()),
+
+          // 国际化
+          ListItem(title: '国际化 i18', page: I18Demo()),
         ],
       ),
     );

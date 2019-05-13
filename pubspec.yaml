@@ -27,11 +27,13 @@ dependencies:
   redux: ^3.0.0
   flutter_svg: ^0.12.4
   path_provider: ^1.0.0
-  intl: ^0.15.8
+  intl: ^0.15.7
   scoped_model: ^1.0.1
   rxdart: ^0.22.0
   bloc: ^0.13.0
   http: ^0.12.0+2
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
